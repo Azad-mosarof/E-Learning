@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEFEF"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/homeViewPager"
+            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="150dp"/>
+
+        <LinearLayout
+            android:id="@+id/trending_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeViewPager"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/trendingTopic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="Trending Categories"
+                android:textColor="#CC000000"
+                android:textSize="21sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeViewPager" />
+
+            <HorizontalScrollView
+                android:id="@+id/tabScroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:fillViewport="true"
+                android:orientation="horizontal"
+                android:padding="15dp"
+                android:scrollbarThumbHorizontal="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/trendingTopic">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/data_science"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border5"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:paddingEnd="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Data Science &amp; \nBusiness Analytics"
+                            android:textColor="#777777"
+                            android:textSize="16sp" />
+
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/analytics"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/softwareDevelopment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border5"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:layout_marginStart="20dp"
+                        android:paddingEnd="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Data Science &amp; \nBusiness Analytics"
+                            android:textColor="#777777"
+                            android:textSize="16sp" />
+
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/analytics"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/web_development"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border5"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:layout_marginStart="20dp"
+                        android:paddingEnd="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Data Science &amp; \nBusiness Analytics"
+                            android:textColor="#777777"
+                            android:textSize="16sp" />
+
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/analytics"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/android_development"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border5"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:layout_marginStart="20dp"
+                        android:paddingEnd="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Data Science &amp; \nBusiness Analytics"
+                            android:textColor="#777777"
+                            android:textSize="16sp" />
+
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/analytics"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border5"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:layout_marginStart="20dp"
+                        android:paddingEnd="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Data Science &amp; \nBusiness Analytics"
+                            android:textColor="#777777"
+                            android:textSize="16sp" />
+
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/analytics"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="#F4F4F4"
+            app:layout_constraintTop_toBottomOf="@+id/trending_layout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top Courses"
+                android:textSize="21sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:textColor="@color/g_black"
+                android:fontFamily="serif"/>
+
+            <HorizontalScrollView
+                android:id="@+id/course_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:fillViewport="true"
+                android:orientation="horizontal"
+                android:padding="15dp"
+                android:scrollbarThumbHorizontal="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/trendingTopic">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <soup.neumorphism.NeumorphCardView
+                            android:id="@+id/flat_card"
+                            style="@style/Widget.Neumorph.CardView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:layout_marginTop="0dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/courses_1"
+                                android:layout_width="300dp"
+                                android:background="@color/white"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="5dp"
+                                android:paddingBottom="10dp"
+                                android:paddingEnd="10dp">
+
+                                <TextView
+                                    android:id="@+id/textView"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:text="Data Science &amp; \nBusiness Analytics"
+                                    android:textColor="#202020"
+                                    android:textSize="19sp"
+                                    app:layout_constraintEnd_toStartOf="@+id/video_view"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/video_view"
+                                    android:layout_width="100dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:src="@drawable/analytics"
+                                    android:scaleType="fitXY"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/f_1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Features"
+                                    android:textColor="#85BFFA"
+                                    app:layout_constraintEnd_toEndOf="@+id/textView"
+                                    app:layout_constraintStart_toStartOf="@+id/textView"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:textColor="#657E97"
+                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"
+                                    app:layout_constraintEnd_toEndOf="@+id/textView"
+                                    app:layout_constraintStart_toStartOf="@+id/textView"
+                                    app:layout_constraintTop_toBottomOf="@+id/f_1" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </soup.neumorphism.NeumorphCardView>
+
+                        <soup.neumorphism.NeumorphCardView
+                            android:id="@+id/flat_card_2"
+                            style="@style/Widget.Neumorph.CardView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:layout_marginTop="0dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/courses_2"
+                                android:layout_width="300dp"
+                                android:background="@color/white"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="5dp"
+                                android:paddingBottom="10dp"
+                                android:paddingEnd="10dp">
+
+                                <TextView
+                                    android:id="@+id/cn_2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:text="Data Science &amp; \nBusiness Analytics"
+                                    android:textColor="#202020"
+                                    android:textSize="19sp"
+                                    app:layout_constraintEnd_toStartOf="@+id/video_view_2"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/video_view_2"
+                                    android:layout_width="100dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:src="@drawable/data_analytics"
+                                    android:scaleType="fitXY"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/f_2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Features"
+                                    android:textColor="#85BFFA"
+                                    app:layout_constraintEnd_toEndOf="@+id/cn_2"
+                                    app:layout_constraintStart_toStartOf="@+id/cn_2"
+                                    app:layout_constraintTop_toBottomOf="@+id/cn_2" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:textColor="#657E97"
+                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"
+                                    app:layout_constraintEnd_toEndOf="@+id/cn_2"
+                                    app:layout_constraintStart_toStartOf="@+id/cn_2"
+                                    app:layout_constraintTop_toBottomOf="@+id/f_2" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </soup.neumorphism.NeumorphCardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <soup.neumorphism.NeumorphCardView
+                            android:id="@+id/flat_card_3"
+                            style="@style/Widget.Neumorph.CardView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:layout_marginTop="0dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/courses_3"
+                                android:layout_width="300dp"
+                                android:background="@color/white"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="5dp"
+                                android:paddingBottom="10dp"
+                                android:paddingEnd="10dp">
+
+                                <TextView
+                                    android:id="@+id/cn_3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:text="Data Science &amp; \nBusiness Analytics"
+                                    android:textColor="#202020"
+                                    android:textSize="19sp"
+                                    app:layout_constraintEnd_toStartOf="@+id/video_view_3"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/video_view_3"
+                                    android:layout_width="100dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:src="@drawable/analytics"
+                                    android:scaleType="fitXY"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/f_3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Features"
+                                    android:textColor="#85BFFA"
+                                    app:layout_constraintEnd_toEndOf="@+id/cn_3"
+                                    app:layout_constraintStart_toStartOf="@+id/cn_3"
+                                    app:layout_constraintTop_toBottomOf="@+id/cn_3" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:textColor="#657E97"
+                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"
+                                    app:layout_constraintEnd_toEndOf="@+id/cn_3"
+                                    app:layout_constraintStart_toStartOf="@+id/cn_3"
+                                    app:layout_constraintTop_toBottomOf="@+id/f_3" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </soup.neumorphism.NeumorphCardView>
+
+                        <soup.neumorphism.NeumorphCardView
+                            android:id="@+id/flat_card_4"
+                            style="@style/Widget.Neumorph.CardView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:layout_marginTop="0dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/courses_4"
+                                android:layout_width="300dp"
+                                android:background="@color/white"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="5dp"
+                                android:paddingBottom="10dp"
+                                android:paddingEnd="10dp">
+
+                                <TextView
+                                    android:id="@+id/cn_4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:text="Data Science &amp; \nBusiness Analytics"
+                                    android:textColor="#202020"
+                                    android:textSize="19sp"
+                                    app:layout_constraintEnd_toStartOf="@+id/video_view_4"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/video_view_4"
+                                    android:layout_width="100dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:src="@drawable/data_analytics"
+                                    android:scaleType="fitXY"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/f_4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Features"
+                                    android:textColor="#85BFFA"
+                                    app:layout_constraintEnd_toEndOf="@+id/cn_4"
+                                    app:layout_constraintStart_toStartOf="@+id/cn_4"
+                                    app:layout_constraintTop_toBottomOf="@+id/cn_4" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:textColor="#657E97"
+                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"
+                                    app:layout_constraintEnd_toEndOf="@+id/cn_4"
+                                    app:layout_constraintStart_toStartOf="@+id/cn_4"
+                                    app:layout_constraintTop_toBottomOf="@+id/f_4" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </soup.neumorphism.NeumorphCardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
