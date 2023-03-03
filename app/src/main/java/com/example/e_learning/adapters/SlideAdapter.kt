@@ -6,29 +6,29 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerAdapter
 import com.example.e_learning.R
 
-class SlideAdapter(private val context: Context, private val slides: List<Int>) :
-    PagerAdapter() {
+class SlideAdapter(private val images: List<Int>) :
+    RecyclerView.Adapter<SlideAdapter.ImageSliderViewHolder>() {
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val imageView = ImageView(context)
-        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-        imageView.setImageResource(slides[position])
-        container.addView(imageView)
-        return imageView
+    inner class ImageSliderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageSliderViewHolder {
+        val view =
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.auto_image_slider, parent, false)
+        return ImageSliderViewHolder(view)
     }
 
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container.removeView(`object` as View)
+    override fun onBindViewHolder(holder: ImageSliderViewHolder, position: Int) {
+        val imageView = holder.itemView.findViewById<ImageView>(R.id.imageView)
+        imageView.setImageResource(images[position])
     }
 
-    override fun getCount(): Int {
-        return slides.size
-    }
-
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view == `object`
+    override fun getItemCount(): Int {
+        return images.size
     }
 }
+

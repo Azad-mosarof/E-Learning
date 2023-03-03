@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFEFEF"
-    tools:context=".MainActivity">
+    tools:context=".fragments.home_fragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/homeViewPager"
             android:layout_width="match_parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/data_science"
+                        android:id="@+id/c_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/border5"
@@ -90,35 +90,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/softwareDevelopment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border5"
-                        android:orientation="horizontal"
-                        android:padding="8dp"
-                        android:layout_marginStart="20dp"
-                        android:paddingEnd="15dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:text="Data Science &amp; \nBusiness Analytics"
-                            android:textColor="#777777"
-                            android:textSize="16sp" />
-
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:scaleType="fitXY"
-                            android:layout_marginStart="10dp"
-                            android:src="@drawable/analytics"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/web_development"
+                        android:id="@+id/c_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/border5"
@@ -146,7 +118,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/android_development"
+                        android:id="@+id/c_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/border5"
@@ -174,7 +146,35 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/ai"
+                        android:id="@+id/c_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border5"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:layout_marginStart="20dp"
+                        android:paddingEnd="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Data Science &amp; \nBusiness Analytics"
+                            android:textColor="#777777"
+                            android:textSize="16sp" />
+
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/analytics"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/c_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/border5"
