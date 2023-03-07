@@ -111,7 +111,7 @@ class Profile : Fragment() {
             }
             val course = Courses(
                 UUID.randomUUID().toString(),
-                courseName, images, features)
+                courseName, images, features,0)
             fireStore.collection(coursesCollection).document(course.id).set(course)
                 .addOnSuccessListener {
                     Toast.makeText(requireContext(), "Course added successfully", Toast.LENGTH_SHORT).show()

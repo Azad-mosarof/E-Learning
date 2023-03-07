@@ -4,7 +4,8 @@ data class Courses(
     val id: String,
     val c_name: String,
     val imgs: List<String>,
-    val features: String
+    val features: String,
+    val courseTag: Int
 ) {
-    constructor(): this("","", imgs=emptyList(), "")
+    constructor(): this("","", imgs=emptyList(), "", 0)
 }

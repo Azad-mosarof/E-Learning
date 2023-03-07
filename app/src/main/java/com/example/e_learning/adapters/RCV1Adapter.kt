@@ -1,4 +1,4 @@
-package com.example.e_learning.activity
+package com.example.e_learning.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -36,7 +36,7 @@ class RCV1Adapter: RecyclerView.Adapter<RCV1Adapter.RCV1ViewHolder>() {
 
     val differ = AsyncListDiffer(this,diffCallback)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RCV1Adapter.RCV1ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RCV1ViewHolder {
         return RCV1ViewHolder(
             ActivityCoursesBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false

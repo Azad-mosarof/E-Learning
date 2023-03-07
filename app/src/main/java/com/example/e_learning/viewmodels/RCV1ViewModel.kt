@@ -17,15 +17,19 @@ class RCV1ViewModel: ViewModel() {
     private val _coursesList = MutableStateFlow<Resource<List<Courses>>>(Resource.Unspecified())
     val courseList = _coursesList.asStateFlow()
 
+    private val _topCoursesList = MutableStateFlow<Resource<List<Courses>>>(Resource.Unspecified())
+    val topCourseList = _topCoursesList.asStateFlow()
+
     init {
-        fetchNotifications()
+        fetchCourses()
+        fetchTopCourses()
     }
 
-    private fun fetchNotifications() {
+    private fun fetchCourses() {
         viewModelScope.launch {
             _coursesList.emit(Resource.Loading())
         }
-        fireStore.collection(coursesCollection).get()
+        fireStore.collection(coursesCollection).whereEqualTo("courseTag",0).get()
             .addOnSuccessListener {
                 viewModelScope.launch {
                     _coursesList.emit(Resource.Success(it.toObjects(Courses::class.java)))
@@ -34,6 +38,23 @@ class RCV1ViewModel: ViewModel() {
             .addOnFailureListener{
                 viewModelScope.launch {
                     _coursesList.emit(Resource.Error(it.message))
+                }
+            }
+    }
+
+    private fun fetchTopCourses() {
+        viewModelScope.launch {
+            _topCoursesList.emit(Resource.Loading())
+        }
+        fireStore.collection(coursesCollection).whereEqualTo("courseTag",1).get()
+            .addOnSuccessListener {
+                viewModelScope.launch {
+                    _topCoursesList.emit(Resource.Success(it.toObjects(Courses::class.java)))
+                }
+            }
+            .addOnFailureListener{
+                viewModelScope.launch {
+                    _topCoursesList.emit(Resource.Error(it.message))
                 }
             }
     }

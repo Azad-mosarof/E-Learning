@@ -10,10 +10,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.load.engine.Resource
 import com.example.e_learning.R
-import com.example.e_learning.activity.RCV1Adapter
+import com.example.e_learning.adapters.RCV1Adapter
 import com.example.e_learning.adapters.SlideAdapter
+import com.example.e_learning.adapters.TopCoursesAdapter
 import com.example.e_learning.databinding.FragmentHomeFragmentBinding
 import com.example.e_learning.viewmodels.RCV1ViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -28,12 +28,16 @@ class home_fragment : Fragment() {
         R.drawable.slide_3
     )
 
+    var l1 = false
+    var l2 = false
+
     lateinit var rcv1Viewmodel: RCV1ViewModel
 
     private val handler = Handler(Looper.getMainLooper())
     private var currentPosition = 0
 
     private val rcv1Adapter: RCV1Adapter by lazy { RCV1Adapter() }
+    private val topCoursesAdapter: TopCoursesAdapter by lazy { TopCoursesAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +53,7 @@ class home_fragment : Fragment() {
 
         setHomeViewPager()
         setUpAdapter()
+        setUpTopCourses()
     }
 
     private fun setHomeViewPager(){
@@ -81,14 +86,40 @@ class home_fragment : Fragment() {
             rcv1Viewmodel.courseList.collectLatest {
                 when(it){
                     is com.example.e_learning.util.Resource.Loading -> {
-                        showLoading()
+                        loading()
                     }
                     is com.example.e_learning.util.Resource.Success -> {
                         rcv1Adapter.differ.submitList(it.data)
-                        hideLoading()
+                        l1 = true
+                        loading()
                     }
                     is com.example.e_learning.util.Resource.Error -> {
-                        hideLoading()
+                        loading()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setUpTopCourses(){
+        binding.topCoursesRV.apply {
+            adapter = topCoursesAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        lifecycleScope.launchWhenStarted {
+            rcv1Viewmodel.topCourseList.collectLatest {
+                when(it){
+                    is com.example.e_learning.util.Resource.Loading -> {
+                        loading()
+                    }
+                    is com.example.e_learning.util.Resource.Success -> {
+                        topCoursesAdapter.differ.submitList(it.data)
+                        l2 = true
+                        loading()
+                    }
+                    is com.example.e_learning.util.Resource.Error -> {
+                        loading()
                     }
                 }
             }
@@ -96,10 +127,19 @@ class home_fragment : Fragment() {
     }
 
     private fun showLoading() {
+        binding.home.visibility = View.GONE
         binding.progressbar.visibility = View.VISIBLE
     }
 
     private fun hideLoading() {
+        binding.home.visibility = View.VISIBLE
         binding.progressbar.visibility = View.INVISIBLE
+    }
+
+    private fun loading(){
+        if(l1 && l2)
+            hideLoading()
+        else
+            showLoading()
     }
 }

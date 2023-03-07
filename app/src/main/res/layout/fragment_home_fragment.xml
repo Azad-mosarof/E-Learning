@@ -8,8 +8,10 @@
     tools:context=".fragments.home_fragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="visible">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/homeViewPager"
@@ -60,7 +62,7 @@
                 android:id="@+id/rcv_1"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 app:layout_constraintTop_toBottomOf="@+id/trendingTopic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -108,290 +110,295 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/topCoursesRV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
-                        <soup.neumorphism.NeumorphCardView
-                            android:id="@+id/flat_card"
-                            style="@style/Widget.Neumorph.CardView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:layout_marginTop="0dp">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="vertical">-->
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/courses_1"
-                                android:layout_width="300dp"
-                                android:background="@color/white"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="5dp"
-                                android:paddingBottom="10dp"
-                                android:paddingEnd="10dp">
+<!--                        <soup.neumorphism.NeumorphCardView-->
+<!--                            android:id="@+id/flat_card"-->
+<!--                            style="@style/Widget.Neumorph.CardView"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:background="@color/white"-->
+<!--                            android:layout_marginTop="0dp">-->
 
-                                <TextView
-                                    android:id="@+id/textView"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:text="Data Science &amp; \nBusiness Analytics"
-                                    android:textColor="#202020"
-                                    android:textSize="19sp"
-                                    app:layout_constraintEnd_toStartOf="@+id/video_view"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+<!--                            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                                android:id="@+id/courses_1"-->
+<!--                                android:layout_width="300dp"-->
+<!--                                android:background="@color/white"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:paddingStart="5dp"-->
+<!--                                android:paddingBottom="10dp"-->
+<!--                                android:paddingEnd="10dp">-->
 
-                                <ImageView
-                                    android:id="@+id/video_view"
-                                    android:layout_width="100dp"
-                                    android:layout_height="80dp"
-                                    android:layout_marginEnd="5dp"
-                                    android:src="@drawable/analytics"
-                                    android:scaleType="fitXY"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+<!--                                <TextView-->
+<!--                                    android:id="@+id/courseName"-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="10dp"-->
+<!--                                    android:layout_marginTop="8dp"-->
+<!--                                    android:layout_marginEnd="10dp"-->
+<!--                                    android:text="Data Science &amp; \nBusiness Analytics"-->
+<!--                                    android:textColor="#202020"-->
+<!--                                    android:textSize="19sp"-->
+<!--                                    app:layout_constraintEnd_toStartOf="@+id/courseImg"-->
+<!--                                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                                <TextView
-                                    android:id="@+id/f_1"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="Features"
-                                    android:textColor="#85BFFA"
-                                    app:layout_constraintEnd_toEndOf="@+id/textView"
-                                    app:layout_constraintStart_toStartOf="@+id/textView"
-                                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/courseImg"-->
+<!--                                    android:layout_width="100dp"-->
+<!--                                    android:layout_height="80dp"-->
+<!--                                    android:layout_marginEnd="5dp"-->
+<!--                                    android:src="@drawable/analytics"-->
+<!--                                    android:scaleType="fitXY"-->
+<!--                                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:textColor="#657E97"
-                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"
-                                    app:layout_constraintEnd_toEndOf="@+id/textView"
-                                    app:layout_constraintStart_toStartOf="@+id/textView"
-                                    app:layout_constraintTop_toBottomOf="@+id/f_1" />
+<!--                                <TextView-->
+<!--                                    android:id="@+id/f_1"-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:text="Features"-->
+<!--                                    android:textColor="#85BFFA"-->
+<!--                                    app:layout_constraintEnd_toEndOf="@+id/courseName"-->
+<!--                                    app:layout_constraintStart_toStartOf="@+id/courseName"-->
+<!--                                    app:layout_constraintTop_toBottomOf="@+id/courseName" />-->
 
-                            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                                <TextView-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="5dp"-->
+<!--                                    android:textColor="#657E97"-->
+<!--                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"-->
+<!--                                    app:layout_constraintEnd_toEndOf="@+id/courseName"-->
+<!--                                    app:layout_constraintStart_toStartOf="@+id/courseName"-->
+<!--                                    app:layout_constraintTop_toBottomOf="@+id/f_1" />-->
 
-                        </soup.neumorphism.NeumorphCardView>
+<!--                            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                        <soup.neumorphism.NeumorphCardView
-                            android:id="@+id/flat_card_2"
-                            style="@style/Widget.Neumorph.CardView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:layout_marginTop="0dp">
+<!--                        </soup.neumorphism.NeumorphCardView>-->
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/courses_2"
-                                android:layout_width="300dp"
-                                android:background="@color/white"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="5dp"
-                                android:paddingBottom="10dp"
-                                android:paddingEnd="10dp">
+<!--                        <soup.neumorphism.NeumorphCardView-->
+<!--                            android:id="@+id/flat_card_2"-->
+<!--                            style="@style/Widget.Neumorph.CardView"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:background="@color/white"-->
+<!--                            android:layout_marginTop="0dp">-->
 
-                                <TextView
-                                    android:id="@+id/cn_2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:text="Data Science &amp; \nBusiness Analytics"
-                                    android:textColor="#202020"
-                                    android:textSize="19sp"
-                                    app:layout_constraintEnd_toStartOf="@+id/video_view_2"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+<!--                            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                                android:id="@+id/courses_2"-->
+<!--                                android:layout_width="300dp"-->
+<!--                                android:background="@color/white"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:paddingStart="5dp"-->
+<!--                                android:paddingBottom="10dp"-->
+<!--                                android:paddingEnd="10dp">-->
 
-                                <ImageView
-                                    android:id="@+id/video_view_2"
-                                    android:layout_width="100dp"
-                                    android:layout_height="80dp"
-                                    android:layout_marginEnd="5dp"
-                                    android:src="@drawable/data_analytics"
-                                    android:scaleType="fitXY"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+<!--                                <TextView-->
+<!--                                    android:id="@+id/cn_2"-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="10dp"-->
+<!--                                    android:layout_marginTop="8dp"-->
+<!--                                    android:layout_marginEnd="10dp"-->
+<!--                                    android:text="Data Science &amp; \nBusiness Analytics"-->
+<!--                                    android:textColor="#202020"-->
+<!--                                    android:textSize="19sp"-->
+<!--                                    app:layout_constraintEnd_toStartOf="@+id/video_view_2"-->
+<!--                                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                                <TextView
-                                    android:id="@+id/f_2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="Features"
-                                    android:textColor="#85BFFA"
-                                    app:layout_constraintEnd_toEndOf="@+id/cn_2"
-                                    app:layout_constraintStart_toStartOf="@+id/cn_2"
-                                    app:layout_constraintTop_toBottomOf="@+id/cn_2" />
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/video_view_2"-->
+<!--                                    android:layout_width="100dp"-->
+<!--                                    android:layout_height="80dp"-->
+<!--                                    android:layout_marginEnd="5dp"-->
+<!--                                    android:src="@drawable/data_analytics"-->
+<!--                                    android:scaleType="fitXY"-->
+<!--                                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:textColor="#657E97"
-                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"
-                                    app:layout_constraintEnd_toEndOf="@+id/cn_2"
-                                    app:layout_constraintStart_toStartOf="@+id/cn_2"
-                                    app:layout_constraintTop_toBottomOf="@+id/f_2" />
+<!--                                <TextView-->
+<!--                                    android:id="@+id/f_2"-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:text="Features"-->
+<!--                                    android:textColor="#85BFFA"-->
+<!--                                    app:layout_constraintEnd_toEndOf="@+id/cn_2"-->
+<!--                                    app:layout_constraintStart_toStartOf="@+id/cn_2"-->
+<!--                                    app:layout_constraintTop_toBottomOf="@+id/cn_2" />-->
 
-                            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                                <TextView-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="5dp"-->
+<!--                                    android:textColor="#657E97"-->
+<!--                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"-->
+<!--                                    app:layout_constraintEnd_toEndOf="@+id/cn_2"-->
+<!--                                    app:layout_constraintStart_toStartOf="@+id/cn_2"-->
+<!--                                    app:layout_constraintTop_toBottomOf="@+id/f_2" />-->
 
-                        </soup.neumorphism.NeumorphCardView>
+<!--                            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                    </LinearLayout>
+<!--                        </soup.neumorphism.NeumorphCardView>-->
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:orientation="vertical">
+<!--                    </LinearLayout>-->
 
-                        <soup.neumorphism.NeumorphCardView
-                            android:id="@+id/flat_card_3"
-                            style="@style/Widget.Neumorph.CardView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:layout_marginTop="0dp">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:orientation="vertical">-->
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/courses_3"
-                                android:layout_width="300dp"
-                                android:background="@color/white"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="5dp"
-                                android:paddingBottom="10dp"
-                                android:paddingEnd="10dp">
+<!--                        <soup.neumorphism.NeumorphCardView-->
+<!--                            android:id="@+id/flat_card_3"-->
+<!--                            style="@style/Widget.Neumorph.CardView"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:background="@color/white"-->
+<!--                            android:layout_marginTop="0dp">-->
 
-                                <TextView
-                                    android:id="@+id/cn_3"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:text="Data Science &amp; \nBusiness Analytics"
-                                    android:textColor="#202020"
-                                    android:textSize="19sp"
-                                    app:layout_constraintEnd_toStartOf="@+id/video_view_3"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+<!--                            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                                android:id="@+id/courses_3"-->
+<!--                                android:layout_width="300dp"-->
+<!--                                android:background="@color/white"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:paddingStart="5dp"-->
+<!--                                android:paddingBottom="10dp"-->
+<!--                                android:paddingEnd="10dp">-->
 
-                                <ImageView
-                                    android:id="@+id/video_view_3"
-                                    android:layout_width="100dp"
-                                    android:layout_height="80dp"
-                                    android:layout_marginEnd="5dp"
-                                    android:src="@drawable/analytics"
-                                    android:scaleType="fitXY"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+<!--                                <TextView-->
+<!--                                    android:id="@+id/cn_3"-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="10dp"-->
+<!--                                    android:layout_marginTop="8dp"-->
+<!--                                    android:layout_marginEnd="10dp"-->
+<!--                                    android:text="Data Science &amp; \nBusiness Analytics"-->
+<!--                                    android:textColor="#202020"-->
+<!--                                    android:textSize="19sp"-->
+<!--                                    app:layout_constraintEnd_toStartOf="@+id/video_view_3"-->
+<!--                                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                                <TextView
-                                    android:id="@+id/f_3"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="Features"
-                                    android:textColor="#85BFFA"
-                                    app:layout_constraintEnd_toEndOf="@+id/cn_3"
-                                    app:layout_constraintStart_toStartOf="@+id/cn_3"
-                                    app:layout_constraintTop_toBottomOf="@+id/cn_3" />
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/video_view_3"-->
+<!--                                    android:layout_width="100dp"-->
+<!--                                    android:layout_height="80dp"-->
+<!--                                    android:layout_marginEnd="5dp"-->
+<!--                                    android:src="@drawable/analytics"-->
+<!--                                    android:scaleType="fitXY"-->
+<!--                                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:textColor="#657E97"
-                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"
-                                    app:layout_constraintEnd_toEndOf="@+id/cn_3"
-                                    app:layout_constraintStart_toStartOf="@+id/cn_3"
-                                    app:layout_constraintTop_toBottomOf="@+id/f_3" />
+<!--                                <TextView-->
+<!--                                    android:id="@+id/f_3"-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:text="Features"-->
+<!--                                    android:textColor="#85BFFA"-->
+<!--                                    app:layout_constraintEnd_toEndOf="@+id/cn_3"-->
+<!--                                    app:layout_constraintStart_toStartOf="@+id/cn_3"-->
+<!--                                    app:layout_constraintTop_toBottomOf="@+id/cn_3" />-->
 
-                            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                                <TextView-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="5dp"-->
+<!--                                    android:textColor="#657E97"-->
+<!--                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"-->
+<!--                                    app:layout_constraintEnd_toEndOf="@+id/cn_3"-->
+<!--                                    app:layout_constraintStart_toStartOf="@+id/cn_3"-->
+<!--                                    app:layout_constraintTop_toBottomOf="@+id/f_3" />-->
 
-                        </soup.neumorphism.NeumorphCardView>
+<!--                            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                        <soup.neumorphism.NeumorphCardView
-                            android:id="@+id/flat_card_4"
-                            style="@style/Widget.Neumorph.CardView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:layout_marginTop="0dp">
+<!--                        </soup.neumorphism.NeumorphCardView>-->
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/courses_4"
-                                android:layout_width="300dp"
-                                android:background="@color/white"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="5dp"
-                                android:paddingBottom="10dp"
-                                android:paddingEnd="10dp">
+<!--                        <soup.neumorphism.NeumorphCardView-->
+<!--                            android:id="@+id/flat_card_4"-->
+<!--                            style="@style/Widget.Neumorph.CardView"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:background="@color/white"-->
+<!--                            android:layout_marginTop="0dp">-->
 
-                                <TextView
-                                    android:id="@+id/cn_4"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_marginEnd="10dp"
-                                    android:text="Data Science &amp; \nBusiness Analytics"
-                                    android:textColor="#202020"
-                                    android:textSize="19sp"
-                                    app:layout_constraintEnd_toStartOf="@+id/video_view_4"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+<!--                            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                                android:id="@+id/courses_4"-->
+<!--                                android:layout_width="300dp"-->
+<!--                                android:background="@color/white"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:paddingStart="5dp"-->
+<!--                                android:paddingBottom="10dp"-->
+<!--                                android:paddingEnd="10dp">-->
 
-                                <ImageView
-                                    android:id="@+id/video_view_4"
-                                    android:layout_width="100dp"
-                                    android:layout_height="80dp"
-                                    android:layout_marginEnd="5dp"
-                                    android:src="@drawable/data_analytics"
-                                    android:scaleType="fitXY"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+<!--                                <TextView-->
+<!--                                    android:id="@+id/cn_4"-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginStart="10dp"-->
+<!--                                    android:layout_marginTop="8dp"-->
+<!--                                    android:layout_marginEnd="10dp"-->
+<!--                                    android:text="Data Science &amp; \nBusiness Analytics"-->
+<!--                                    android:textColor="#202020"-->
+<!--                                    android:textSize="19sp"-->
+<!--                                    app:layout_constraintEnd_toStartOf="@+id/video_view_4"-->
+<!--                                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                                <TextView
-                                    android:id="@+id/f_4"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="Features"
-                                    android:textColor="#85BFFA"
-                                    app:layout_constraintEnd_toEndOf="@+id/cn_4"
-                                    app:layout_constraintStart_toStartOf="@+id/cn_4"
-                                    app:layout_constraintTop_toBottomOf="@+id/cn_4" />
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/video_view_4"-->
+<!--                                    android:layout_width="100dp"-->
+<!--                                    android:layout_height="80dp"-->
+<!--                                    android:layout_marginEnd="5dp"-->
+<!--                                    android:src="@drawable/data_analytics"-->
+<!--                                    android:scaleType="fitXY"-->
+<!--                                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:textColor="#657E97"
-                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"
-                                    app:layout_constraintEnd_toEndOf="@+id/cn_4"
-                                    app:layout_constraintStart_toStartOf="@+id/cn_4"
-                                    app:layout_constraintTop_toBottomOf="@+id/f_4" />
+<!--                                <TextView-->
+<!--                                    android:id="@+id/f_4"-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:text="Features"-->
+<!--                                    android:textColor="#85BFFA"-->
+<!--                                    app:layout_constraintEnd_toEndOf="@+id/cn_4"-->
+<!--                                    app:layout_constraintStart_toStartOf="@+id/cn_4"-->
+<!--                                    app:layout_constraintTop_toBottomOf="@+id/cn_4" />-->
 
-                            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                                <TextView-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="5dp"-->
+<!--                                    android:textColor="#657E97"-->
+<!--                                    android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"-->
+<!--                                    app:layout_constraintEnd_toEndOf="@+id/cn_4"-->
+<!--                                    app:layout_constraintStart_toStartOf="@+id/cn_4"-->
+<!--                                    app:layout_constraintTop_toBottomOf="@+id/f_4" />-->
 
-                        </soup.neumorphism.NeumorphCardView>
+<!--                            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                    </LinearLayout>
+<!--                        </soup.neumorphism.NeumorphCardView>-->
+
+<!--                    </LinearLayout>-->
 
                 </LinearLayout>
 

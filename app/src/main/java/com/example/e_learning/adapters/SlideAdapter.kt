@@ -1,13 +1,10 @@
 package com.example.e_learning.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.PagerAdapter
 import com.example.e_learning.R
 
 class SlideAdapter(private val images: List<Int>) :
@@ -23,7 +20,7 @@ class SlideAdapter(private val images: List<Int>) :
     }
 
     override fun onBindViewHolder(holder: ImageSliderViewHolder, position: Int) {
-        val imageView = holder.itemView.findViewById<ImageView>(R.id.imageView)
+        val imageView = holder.itemView.findViewById<ImageView>(R.id.courseImg)
         imageView.setImageResource(images[position])
     }
 
