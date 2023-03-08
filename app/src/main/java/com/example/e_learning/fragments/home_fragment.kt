@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.e_learning.R
 import com.example.e_learning.adapters.RCV1Adapter
+import com.example.e_learning.adapters.RecentlyViewedRVAdapter
 import com.example.e_learning.adapters.SlideAdapter
 import com.example.e_learning.adapters.TopCoursesAdapter
 import com.example.e_learning.databinding.FragmentHomeFragmentBinding
@@ -38,6 +39,7 @@ class home_fragment : Fragment() {
 
     private val rcv1Adapter: RCV1Adapter by lazy { RCV1Adapter() }
     private val topCoursesAdapter: TopCoursesAdapter by lazy { TopCoursesAdapter() }
+    private val recentlyViewedAdapter: RecentlyViewedRVAdapter by lazy { RecentlyViewedRVAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +55,10 @@ class home_fragment : Fragment() {
 
         setHomeViewPager()
         setUpAdapter()
+        setUpContinueReading()
         setUpTopCourses()
+        setUpRecentlyViewed()
+        setUpSoftwareDev()
     }
 
     private fun setHomeViewPager(){
@@ -115,6 +120,81 @@ class home_fragment : Fragment() {
                     }
                     is com.example.e_learning.util.Resource.Success -> {
                         topCoursesAdapter.differ.submitList(it.data)
+                        l2 = true
+                        loading()
+                    }
+                    is com.example.e_learning.util.Resource.Error -> {
+                        loading()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setUpContinueReading(){
+        binding.continueReadingRV.apply {
+            adapter = topCoursesAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        lifecycleScope.launchWhenStarted {
+            rcv1Viewmodel.topCourseList.collectLatest {
+                when(it){
+                    is com.example.e_learning.util.Resource.Loading -> {
+                        loading()
+                    }
+                    is com.example.e_learning.util.Resource.Success -> {
+                        topCoursesAdapter.differ.submitList(it.data)
+                        l2 = true
+                        loading()
+                    }
+                    is com.example.e_learning.util.Resource.Error -> {
+                        loading()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setUpRecentlyViewed(){
+        binding.recentlyViewedRV.apply {
+            adapter = recentlyViewedAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        lifecycleScope.launchWhenStarted {
+            rcv1Viewmodel.topCourseList.collectLatest {
+                when(it){
+                    is com.example.e_learning.util.Resource.Loading -> {
+                        loading()
+                    }
+                    is com.example.e_learning.util.Resource.Success -> {
+                        recentlyViewedAdapter.differ.submitList(it.data)
+                        l2 = true
+                        loading()
+                    }
+                    is com.example.e_learning.util.Resource.Error -> {
+                        loading()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setUpSoftwareDev(){
+        binding.softwareDevRV.apply {
+            adapter = recentlyViewedAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        lifecycleScope.launchWhenStarted {
+            rcv1Viewmodel.topCourseList.collectLatest {
+                when(it){
+                    is com.example.e_learning.util.Resource.Loading -> {
+                        loading()
+                    }
+                    is com.example.e_learning.util.Resource.Success -> {
+                        recentlyViewedAdapter.differ.submitList(it.data)
                         l2 = true
                         loading()
                     }

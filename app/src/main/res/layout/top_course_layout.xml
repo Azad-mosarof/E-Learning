@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <soup.neumorphism.NeumorphCardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/flat_card"
         style="@style/Widget.Neumorph.CardView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="290dp"
+        android:layout_height="190dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="0dp">
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/courses_1"
-            android:layout_width="300dp"
-            android:background="@color/white"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:paddingStart="5dp"
-            android:paddingBottom="10dp"
-            android:paddingEnd="10dp">
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp">
 
             <TextView
                 android:id="@+id/courseName"
@@ -34,6 +37,8 @@
                 android:text="Data Science &amp; \nBusiness Analytics"
                 android:textColor="#202020"
                 android:textSize="19sp"
+                android:maxLines="2"
+                android:ellipsize="end"
                 app:layout_constraintEnd_toStartOf="@+id/courseImg"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -42,37 +47,40 @@
                 android:id="@+id/courseImg"
                 android:layout_width="100dp"
                 android:layout_height="80dp"
-                android:layout_marginEnd="5dp"
-                android:src="@drawable/analytics"
+                android:layout_marginEnd="3dp"
                 android:scaleType="fitXY"
+                android:src="@drawable/analytics"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/courseName"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/f_1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
                 android:text="Features"
                 android:textColor="#85BFFA"
-                app:layout_constraintEnd_toEndOf="@+id/courseName"
-                app:layout_constraintStart_toStartOf="@+id/courseName"
-                app:layout_constraintTop_toBottomOf="@+id/courseName" />
+                app:layout_constraintBottom_toTopOf="@+id/features"
+                app:layout_constraintEnd_toEndOf="@+id/features"
+                app:layout_constraintStart_toStartOf="@+id/features" />
 
             <TextView
                 android:id="@+id/features"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:maxLines="5"
                 android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"
                 android:textColor="#657E97"
-                app:layout_constraintEnd_toEndOf="@+id/courseName"
+                app:layout_constraintEnd_toStartOf="@+id/courseImg"
                 app:layout_constraintStart_toStartOf="@+id/courseName"
-                app:layout_constraintTop_toBottomOf="@+id/f_1" />
+                app:layout_constraintTop_toBottomOf="@+id/courseImg" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </soup.neumorphism.NeumorphCardView>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

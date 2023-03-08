@@ -8,17 +8,19 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/drawable/border5.xml" value="0.2195" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/drawable/border_1.xml" value="0.2195" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/drawable/circle_white.xml" value="0.2195" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/drawable/rectangle_1.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/activity_courses.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/activity_home.xml" value="0.2210144927536232" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/auto_image_slider.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/custom_tab_item.xml" value="0.2210144927536232" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/fragment_home_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/fragment_home_fragment.xml" value="0.1935739785799286" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/fragment_my_courses.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/fragment_search.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/rcv_1.xml" value="0.253125" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/top_course_layout.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/recently_viewed.xml" value="0.264" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/layout/top_course_layout.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/E_Learning/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
