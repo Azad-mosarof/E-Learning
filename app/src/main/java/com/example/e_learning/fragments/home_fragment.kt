@@ -32,7 +32,7 @@ class home_fragment : Fragment() {
     var l1 = false
     var l2 = false
 
-    lateinit var rcv1Viewmodel: RCV1ViewModel
+    private lateinit var rcv1Remodel: RCV1ViewModel
 
     private val handler = Handler(Looper.getMainLooper())
     private var currentPosition = 0
@@ -46,7 +46,7 @@ class home_fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeFragmentBinding.inflate(layoutInflater)
-        rcv1Viewmodel = ViewModelProvider(this)[RCV1ViewModel::class.java]
+        rcv1Remodel = ViewModelProvider(this)[RCV1ViewModel::class.java]
         return binding.root
     }
 
@@ -88,7 +88,7 @@ class home_fragment : Fragment() {
         }
 
         lifecycleScope.launchWhenStarted {
-            rcv1Viewmodel.courseList.collectLatest {
+            rcv1Remodel.courseList.collectLatest {
                 when(it){
                     is com.example.e_learning.util.Resource.Loading -> {
                         loading()
@@ -113,7 +113,7 @@ class home_fragment : Fragment() {
         }
 
         lifecycleScope.launchWhenStarted {
-            rcv1Viewmodel.topCourseList.collectLatest {
+            rcv1Remodel.topCourseList.collectLatest {
                 when(it){
                     is com.example.e_learning.util.Resource.Loading -> {
                         loading()
@@ -138,7 +138,7 @@ class home_fragment : Fragment() {
         }
 
         lifecycleScope.launchWhenStarted {
-            rcv1Viewmodel.topCourseList.collectLatest {
+            rcv1Remodel.topCourseList.collectLatest {
                 when(it){
                     is com.example.e_learning.util.Resource.Loading -> {
                         loading()
@@ -163,7 +163,7 @@ class home_fragment : Fragment() {
         }
 
         lifecycleScope.launchWhenStarted {
-            rcv1Viewmodel.topCourseList.collectLatest {
+            rcv1Remodel.topCourseList.collectLatest {
                 when(it){
                     is com.example.e_learning.util.Resource.Loading -> {
                         loading()
@@ -188,7 +188,7 @@ class home_fragment : Fragment() {
         }
 
         lifecycleScope.launchWhenStarted {
-            rcv1Viewmodel.topCourseList.collectLatest {
+            rcv1Remodel.topCourseList.collectLatest {
                 when(it){
                     is com.example.e_learning.util.Resource.Loading -> {
                         loading()
