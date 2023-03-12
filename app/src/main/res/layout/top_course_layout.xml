@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/flat_card"
         style="@style/Widget.Neumorph.CardView"
-        android:layout_width="290dp"
+        android:layout_width="match_parent"
         android:layout_height="190dp"
         app:cardElevation="5dp"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         app:cardBackgroundColor="@color/cardview_light_background"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -39,21 +39,64 @@
                 android:textSize="19sp"
                 android:maxLines="2"
                 android:ellipsize="end"
-                app:layout_constraintEnd_toStartOf="@+id/courseImg"
+                app:layout_constraintEnd_toStartOf="@+id/courseImgCard"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/courseImg"
-                android:layout_width="100dp"
-                android:layout_height="80dp"
-                android:layout_marginEnd="3dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/analytics"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/courseImgCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/courseName"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                android:layout_marginEnd="3dp"
+                android:elevation="8dp">
+
+                <ImageView
+                    android:id="@+id/courseImg"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/analytics"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/f_1"
+                app:layout_constraintEnd_toStartOf="@+id/courseImgCard"
+                app:layout_constraintStart_toStartOf="@+id/f_1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="4.5"
+                    android:textColor="@color/g_black" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/star" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="270K learners"
+                    android:textColor="@color/g_blue_gray200" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/f_1"
@@ -75,9 +118,9 @@
                 android:maxLines="5"
                 android:text="1. From basic to advance concept\n\n2. 20+ projects\n\n3. Source code"
                 android:textColor="#657E97"
-                app:layout_constraintEnd_toStartOf="@+id/courseImg"
+                app:layout_constraintEnd_toStartOf="@+id/courseImgCard"
                 app:layout_constraintStart_toStartOf="@+id/courseName"
-                app:layout_constraintTop_toBottomOf="@+id/courseImg" />
+                app:layout_constraintTop_toBottomOf="@+id/courseImgCard" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

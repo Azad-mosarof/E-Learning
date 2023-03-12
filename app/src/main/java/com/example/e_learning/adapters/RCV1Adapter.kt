@@ -31,7 +31,6 @@ class RCV1Adapter: RecyclerView.Adapter<RCV1Adapter.RCV1ViewHolder>() {
         override fun areContentsTheSame(oldItem: Courses, newItem: Courses): Boolean {
             return oldItem == newItem
         }
-
     }
 
     val differ = AsyncListDiffer(this,diffCallback)

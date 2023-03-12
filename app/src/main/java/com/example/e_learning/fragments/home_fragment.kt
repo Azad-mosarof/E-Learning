@@ -24,8 +24,8 @@ class home_fragment : Fragment() {
 
     private lateinit var binding: FragmentHomeFragmentBinding
     val slides = listOf(
-        R.drawable.slide_1,
-        R.drawable.slide_2,
+        R.drawable.block,
+        R.drawable.cv,
         R.drawable.slide_3
     )
 
@@ -78,7 +78,7 @@ class home_fragment : Fragment() {
     }
 
     private fun getImages(): List<Int> {
-        return listOf(R.drawable.slide_1, R.drawable.slide_2, R.drawable.slide_3)
+        return slides
     }
 
     private fun setUpAdapter(){

@@ -1,11 +1,9 @@
 package com.example.e_learning.viewmodels
 
-import android.app.Notification
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.e_learning.data.Courses
 import com.example.e_learning.util.Resource
-import com.example.e_learning.util.auth
 import com.example.e_learning.util.coursesCollection
 import com.example.e_learning.util.fireStore
 import kotlinx.coroutines.flow.MutableStateFlow

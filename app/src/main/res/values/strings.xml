@@ -2,4 +2,12 @@
     <string name="app_name">E_Learning</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="big_text">Welcome to eLearning</string>
+    <string name="start">Start</string>
+    <string name="small_text">Start your journey towards a career in tech today with our eLearning platform.We guarantee that our courses will provide you with the skills and knowledge you need to succeed in today\'s ever-changing tech industry</string>
+    <string name="eLearning">eLearning</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account?</string>
+
 </resources>

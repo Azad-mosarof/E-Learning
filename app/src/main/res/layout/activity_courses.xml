@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="8dp"
-            android:background="@color/g_card_background">
+            android:background="@color/white">
 
             <TextView
                 android:id="@+id/course_name"
