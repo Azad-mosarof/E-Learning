@@ -3,26 +3,18 @@ package com.example.e_learning.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.e_learning.R
 import com.example.e_learning.adapters.CourseContentAdapter
-import com.example.e_learning.adapters.TopCoursesAdapter
-import com.example.e_learning.data.Courses
 import com.example.e_learning.databinding.ActivityCourseContentListBinding
 import com.example.e_learning.util.Resource
-import com.example.e_learning.util.coursesCollection
-import com.example.e_learning.util.fireStore
 import com.example.e_learning.viewmodels.CourseContentViewModel
 import com.example.e_learning.viewmodels.factory.CourseContentFactory
-import com.example.e_shop.util.RegisterValidation
 import kotlinx.coroutines.flow.collectLatest
 
 class CourseContentList : AppCompatActivity() {
@@ -30,7 +22,6 @@ class CourseContentList : AppCompatActivity() {
     private lateinit var binding: ActivityCourseContentListBinding
     var visibility: Boolean = true
 
-    private val courseContentAdapter: CourseContentAdapter by lazy { CourseContentAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +32,7 @@ class CourseContentList : AppCompatActivity() {
         val toolBar: ConstraintLayout = findViewById(R.id.toolBar)
         toolBar.setBackgroundColor(resources.getColor(R.color.purple_700))
         val tootlBarTitle: TextView = findViewById(R.id.tootlBarTitle)
-        tootlBarTitle.setText("Course Content")
+        tootlBarTitle.text = "Course Content"
         val backIcon: ImageView = findViewById(R.id.toolBarBackIcon)
         backIcon.setOnClickListener{
             finish()
@@ -67,13 +58,15 @@ class CourseContentList : AppCompatActivity() {
 
     private fun setUpCourseContentRV(courseId: String){
 
+        val viewmodel by viewModels<CourseContentViewModel> {
+            CourseContentFactory(courseId)
+        }
+
+        val courseContentAdapter: CourseContentAdapter by lazy { CourseContentAdapter(this, viewmodel, this) }
+
         binding.courseContentRV.apply {
             adapter = courseContentAdapter
             layoutManager = LinearLayoutManager(this@CourseContentList, LinearLayoutManager.VERTICAL, false)
-        }
-
-        val viewmodel by viewModels<CourseContentViewModel> {
-            CourseContentFactory(courseId)
         }
 
         lifecycleScope.launchWhenStarted {

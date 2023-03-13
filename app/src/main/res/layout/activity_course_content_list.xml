@@ -38,6 +38,7 @@
                 android:background="@color/white"
                 android:layout_gravity="center"
                 android:orientation="horizontal"
+                android:layout_marginStart="@dimen/_10dp"
                 android:padding="@dimen/_10dp">
 
                 <TextView

@@ -1,5 +1,6 @@
 package com.example.e_learning.activity.temp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -25,12 +26,16 @@ class ContentAdder : AppCompatActivity() {
         binding.add.setOnClickListener{
             val id = UUID.randomUUID().toString()
             val courseContent = CourseContent(binding.contentName.text.toString(), id)
-            fireStore.collection(coursesCollection).document(courseId!!).collection(contentCollection).add(courseContent)
+            fireStore.collection(coursesCollection).document(courseId!!).collection(contentCollection).document(id).set(courseContent)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Content successfully added", Toast.LENGTH_SHORT).show()
                     contentCounter++
                     binding.contentCounter.text = contentCounter.toString()
                     binding.contentName.text.clear()
+                    val intent = Intent(this, SubContentAdder::class.java)
+                    intent.putExtra("contentId", id)
+                    intent.putExtra("courseId", courseId)
+                    startActivity(intent)
                 }
                 .addOnFailureListener{
                     Toast.makeText(this, it.message.toString(),Toast.LENGTH_SHORT).show()
