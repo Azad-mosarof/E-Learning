@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/g_blue_gray200" />
+        app:tint="@color/g_white" />
 
     <TextView
         android:id="@+id/tootlBarTitle"
@@ -27,7 +27,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Welcome to Lesso"
-        android:textColor="@color/g_blue_gray200"
+        android:textColor="@color/g_white"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolBarBackIcon"
         app:layout_constraintEnd_toEndOf="parent"

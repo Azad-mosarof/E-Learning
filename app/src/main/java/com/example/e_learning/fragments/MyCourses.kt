@@ -15,19 +15,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.content.ContextCompat.registerReceiver
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.e_learning.R
-import com.example.e_learning.activity.CourseContentList
+import com.example.e_learning.adapters.MyCoursesAdapter
 import com.example.e_learning.adapters.TopCoursesAdapter
 import com.example.e_learning.databinding.FragmentMyCoursesBinding
-import com.example.e_learning.databinding.FragmentSearchBinding
 import com.example.e_learning.util.Resource
-import com.example.e_learning.viewmodels.RCV1ViewModel
 import com.example.e_learning.viewmodels.myCoursesViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -36,7 +30,7 @@ class MyCourses : Fragment() {
 
 
     private lateinit var binding: FragmentMyCoursesBinding
-    private val myCoursesAdapter: TopCoursesAdapter by lazy { TopCoursesAdapter() }
+    private val myCoursesAdapter: MyCoursesAdapter by lazy { MyCoursesAdapter(requireContext()) }
     private lateinit var myCoursesViewmodel: myCoursesViewModel
 
     override fun onCreateView(
@@ -51,6 +45,7 @@ class MyCourses : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         myCoursesViewmodel = ViewModelProvider(this)[myCoursesViewModel::class.java]
+        setUpMyCoursesAdapter()
     }
 
     private fun setUpMyCoursesAdapter(){

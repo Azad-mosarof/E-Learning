@@ -2,9 +2,13 @@ package com.example.e_learning.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +28,7 @@ import kotlinx.coroutines.flow.collectLatest
 class CourseContentList : AppCompatActivity() {
 
     private lateinit var binding: ActivityCourseContentListBinding
+    var visibility: Boolean = true
 
     private val courseContentAdapter: CourseContentAdapter by lazy { CourseContentAdapter() }
 
@@ -31,8 +36,33 @@ class CourseContentList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCourseContentListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar!!.hide()
 
+        val toolBar: ConstraintLayout = findViewById(R.id.toolBar)
+        toolBar.setBackgroundColor(resources.getColor(R.color.purple_700))
+        val tootlBarTitle: TextView = findViewById(R.id.tootlBarTitle)
+        tootlBarTitle.setText("Course Content")
+        val backIcon: ImageView = findViewById(R.id.toolBarBackIcon)
+        backIcon.setOnClickListener{
+            finish()
+            overridePendingTransition(R.drawable.slide_in_left, R.drawable.slide_out_right)
+        }
 
+        binding.dropdownMenu.setOnClickListener{
+            if(visibility){
+                binding.courseContentRV.visibility = View.GONE
+                visibility = false
+                binding.dropdownMenu.setImageResource(R.drawable.arrow_drop_down)
+            }
+            else{
+                binding.courseContentRV.visibility = View.VISIBLE
+                visibility = true
+                binding.dropdownMenu.setImageResource(R.drawable.arrow_drop_up)
+            }
+        }
+
+        val courseId = intent.getStringExtra("courseId")
+        setUpCourseContentRV(courseId!!)
     }
 
     private fun setUpCourseContentRV(courseId: String){

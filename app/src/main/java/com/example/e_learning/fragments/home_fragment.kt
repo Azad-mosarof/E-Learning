@@ -38,7 +38,7 @@ class home_fragment : Fragment() {
     private var currentPosition = 0
 
     private val rcv1Adapter: RCV1Adapter by lazy { RCV1Adapter() }
-    private val topCoursesAdapter: TopCoursesAdapter by lazy { TopCoursesAdapter() }
+    private val topCoursesAdapter: TopCoursesAdapter by lazy { TopCoursesAdapter(requireContext()) }
     private val recentlyViewedAdapter: RecentlyViewedRVAdapter by lazy { RecentlyViewedRVAdapter() }
 
     override fun onCreateView(

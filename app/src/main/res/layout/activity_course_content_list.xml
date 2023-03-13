@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/g_card_background"
+    android:background="@color/g_search_and_icons"
     tools:context=".activity.CourseContentList">
 
     <include
@@ -51,13 +51,19 @@
                     android:textColor="@color/g_black"/>
 
                 <ImageView
+                    android:id="@+id/dropdown_menu"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/arrow_drop_down"
+                    android:src="@drawable/arrow_drop_up"
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/_10dp"/>
 
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E9ECEF"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/courseContentRV"

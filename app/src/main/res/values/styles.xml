@@ -62,6 +62,13 @@
         <item name="android:textColor">#FF0000</item>
     </style>
 
+    <style name="CustomProgressBar" parent="@style/Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/custom_progress_bar</item>
+        <item name="android:progressDrawable">@drawable/custom_progress_bar</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:minHeight">64dp</item>
+    </style>
+
 
     <dimen name="h4TextSize">35sp</dimen>
     <dimen name="h2TextSize">17sp</dimen>

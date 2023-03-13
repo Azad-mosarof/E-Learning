@@ -13,23 +13,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.E_Learning"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activity.temp.SubContentAdder"
+            android:exported="false" />
+        <activity
+            android:name=".activity.temp.ContentAdder"
+            android:exported="false" />
+        <activity
+            android:name=".activity.temp.CourseAdder"
+            android:exported="false" />
         <activity
             android:name=".activity.CourseContentList"
             android:exported="false" />
-
         <activity
             android:name=".activity.userAuth.Register"
             android:exported="false" />
-
         <activity
             android:name=".activity.userAuth.Login"
             android:exported="false" />
-
         <activity
             android:name=".activity.userAuth.LoginSignin"
             android:exported="false" />
-
         <activity
             android:name=".activity.userAuth.Introduction"
             android:exported="true">
@@ -39,18 +43,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.CourseDetails"
             android:exported="false" />
         <activity
             android:name=".activity.CoursesActivity"
             android:exported="false" />
-
         <activity
             android:name=".activity.Home"
-            android:exported="false"/>
-
+            android:exported="false" />
     </application>
 
 </manifest>
