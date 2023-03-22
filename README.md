@@ -4,8 +4,7 @@
 
 ## Features
 - Course library with a variety of programming languages and software development courses.
-Real-world projects to practice skills and learn how to apply them in industry-level applications.
-Interactive quizzes and assessments to test knowledge and progress.
-Progress tracking and personalized recommendations for courses based on student performance.
-Offline access to courses and projects for learning on-the-go.
+- Real-world projects to practice skills and learn how to apply them in industry-level applications.
+- Interactive quizzes and assessments to test knowledge and progress.
+- Progress tracking and personalized recommendations for courses based on student performance.
 
