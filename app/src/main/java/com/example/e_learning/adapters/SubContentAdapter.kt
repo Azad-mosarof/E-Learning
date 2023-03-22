@@ -1,15 +1,18 @@
 package com.example.e_learning.adapters
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.e_learning.activity.temp.PDFViewer
 import com.example.e_learning.data.SubContent
 import com.example.e_learning.databinding.SubContentLayoutBinding
 
-class SubContentAdapter: RecyclerView.Adapter<SubContentAdapter.SubContentViewHolder>()  {
+class SubContentAdapter(val context: Context): RecyclerView.Adapter<SubContentAdapter.SubContentViewHolder>()  {
 
     inner class SubContentViewHolder(private val binding: SubContentLayoutBinding):
         RecyclerView.ViewHolder(binding.root){
@@ -17,6 +20,12 @@ class SubContentAdapter: RecyclerView.Adapter<SubContentAdapter.SubContentViewHo
         fun bind(course: SubContent){
             binding.apply {
                 subContentName.text = course.header
+                ll1.setOnClickListener{
+                    val intent = Intent(context, PDFViewer::class.java)
+                    intent.putExtra("materialUrl", course.materialUrl)
+                    intent.putExtra("title", course.header)
+                    context.startActivity(intent)
+                }
             }
         }
     }

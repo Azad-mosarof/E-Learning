@@ -9,10 +9,14 @@ import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.e_learning.R
 import com.example.e_learning.adapters.CourseContentAdapter
+import com.example.e_learning.data.Courses
 import com.example.e_learning.databinding.ActivityCourseContentListBinding
 import com.example.e_learning.util.Resource
+import com.example.e_learning.util.coursesCollection
+import com.example.e_learning.util.fireStore
 import com.example.e_learning.viewmodels.CourseContentViewModel
 import com.example.e_learning.viewmodels.factory.CourseContentFactory
 import kotlinx.coroutines.flow.collectLatest
@@ -53,7 +57,12 @@ class CourseContentList : AppCompatActivity() {
         }
 
         val courseId = intent.getStringExtra("courseId")
-        setUpCourseContentRV(courseId!!)
+        fireStore.collection(coursesCollection).document(courseId!!).get()
+            .addOnSuccessListener {
+                val course = it.toObject(Courses::class.java)
+                Glide.with(this).load(course!!.imgs[0]).into(binding.courseImg)
+            }
+        setUpCourseContentRV(courseId)
     }
 
     private fun setUpCourseContentRV(courseId: String){

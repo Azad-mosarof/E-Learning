@@ -32,7 +32,7 @@ class CourseContentAdapter(val context: Context, val viewmodel: CourseContentVie
             binding.apply {
                 courseContentName.text = course.header
 
-                val subContentAdapter: SubContentAdapter by lazy { SubContentAdapter() }
+                val subContentAdapter: SubContentAdapter by lazy { SubContentAdapter(context) }
                 subContentRV.apply {
                     adapter = subContentAdapter
                     layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
